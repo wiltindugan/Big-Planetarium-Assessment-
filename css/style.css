@@ -1,0 +1,67 @@
+/* defines the dark theme and page layout */
+body {
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+/* centers text for the main layout sections */
+header,
+nav,
+main {
+    text-align: center;
+}
+
+/* styles for navigation links and spacing */
+nav a {
+    color: yellow;
+    padding: 10px;
+    text-decoration: none;
+}
+
+/* creates a two column grid for content */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px auto;
+    width: 600px;
+}
+
+/* centers content inside each grid item */
+.item {
+    text-align: center;
+}
+
+/* makes the third item span both columns */
+.item:nth-child(3) {
+    grid-column: span 2;
+}
+
+/* applies consistent sizing to all media elements */
+.item video,
+.item img {
+    width: 290px;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid white;
+}
+
+/* visual styles for the interactive buttons */
+button {
+    display: block;
+    margin: 10px auto;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+/* adds a hover effect to improve user experience */
+button:hover {
+    background: white;
+    color: black;
+}

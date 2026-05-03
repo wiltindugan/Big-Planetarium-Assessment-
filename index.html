@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Big Planetarium</title>
+    <!-- links the external css stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Big Planetarium</h1>
+        <!-- navigation links for all five website pages -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="mars.html">Mars</a>
+            <a href="jupiter.html">Jupiter</a>
+            <a href="saturn.html">Saturn</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Welcome to the Universe</h2>
+        <p>Explore the planets in our solar system.</p>
+
+        <!-- grid container for galaxy media items -->
+        <div class="gallery">
+            <!-- video section with custom play control -->
+            <div class="item">
+                <video>
+                    <source src="media/galaxyvideo.mp4" type="video/mp4">
+                </video>
+                <button onclick="toggleMedia(this)">Play / Pause</button>
+                <p>Milky Way clip</p>
+            </div>
+
+            <!-- image with alt text for accessibility -->
+            <div class="item">
+                <img src="images/galaxy.jpg" alt="A photo of the galaxy">
+                <p>Milky Way image</p>
+            </div>
+
+            <!-- audio section with custom play control -->
+            <div class="item">
+                <audio>
+                    <source src="media/galaxyaudio.mp3" type="audio/mpeg">
+                </audio>
+                <button onclick="toggleMedia(this)">Play / Pause</button>
+                <p>Milky Way audio</p>
+            </div>
+        </div>
+
+        <!-- interactive section for dynamic space facts -->
+        <div class="interaction-container">
+            <button onclick="showFact()">Click for a Space Fact!</button>
+            <p id="fact-display">Click the button to learn something new!</p>
+        </div>
+    </main>
+
+    <footer>
+        <!-- semantic footer for copyright information -->
+        <p>&copy; 2026 Big Planetarium</p>
+    </footer>
+
+    <!-- script for website interactions and logic -->
+    <script>
+        // list of planetary facts for the random generator
+        const facts = [
+            "Mars is home to Olympus Mons, the largest volcano in the solar system.",
+            "Jupiter's Great Red Spot is a storm that has been raging for centuries.",
+            "Saturn's rings are made mostly of chunks of ice and rock.",
+            "The Sun contains 99.8% of the mass in our solar system."
+        ];
+
+        // function to select and display random facts
+        function showFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factDisplay = document.getElementById("fact-display");
+            factDisplay.innerHTML = facts[randomIndex];
+        }
+
+        // function to play or pause video and audio
+        function toggleMedia(btn) {
+            const media = btn.previousElementSibling;
+            if (media.paused) {
+                media.play();
+            } else {
+                media.pause();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
